@@ -3,9 +3,8 @@ public class ContaCorrente extends ContaBancaria {
 
 	private int quantTransacoes;
 
-	public ContaCorrente(String senha, int quantTransacoes) {
+	public ContaCorrente(String senha) {
 		super(senha);
-		this.quantTransacoes = quantTransacoes;
 	}
 
 	@Override
@@ -15,14 +14,27 @@ public class ContaCorrente extends ContaBancaria {
 
 	@Override
 	public void deposita(double valor) {
-		// TODO Auto-generated method stub
-
+		setSaldo(getSaldo() + valor);
+		quantTransacoes++;
 	}
 
 	@Override
 	public void tiraExtrato() {
-		// TODO Auto-generated method stub
+		System.out.println(this.toString());
+		quantTransacoes++;
+	}
 
+	public int getQuantTransacoes() {
+		return quantTransacoes;
+	}
+
+	public void setQuantTransacoes(int quantTransacoes) {
+		this.quantTransacoes = quantTransacoes;
+	}
+
+	@Override
+	public String toString() {
+		return "ContaCorrente [quantTransacoes=" + quantTransacoes + ", toString()=" + super.toString() + "]";
 	}
 
 }
