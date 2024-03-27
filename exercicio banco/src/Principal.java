@@ -47,7 +47,16 @@ public class Principal {
 			   else if(cb instanceof ContaCorrente)
 		    	   System.out.println("Quantidade de transações da conta corrente "+cb.getNumero()+": "+((ContaCorrente)cb).getQuantTransacoes());		   
 		   
-		   
+		   Rentavel[] rentaveis = new Rentavel[(int)(Math.random()*10+1)];
+		   for(int i=0; i<rentaveis.length; i++)
+			   rentaveis[i] = Math.random() < 0.5 ? new ContaPoupanca("123456") : new TesouroDireto(0);
+			   //OU
+			   /*if(Math.random() <0.5)
+				   rentaveis[i] = new ContaPoupanca("123456");
+			   else
+				   rentaveis[i] = new TesouroDireto(0);*/
+		  for(Rentavel r: rentaveis)
+			  System.out.println(r.calculaRendimento());
 	}
 
 	
